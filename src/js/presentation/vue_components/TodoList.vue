@@ -12,7 +12,11 @@
             </thead>
             <tbody>
                 <div v-for="todo in todos">
-                    <todo></todo>
+                    <tr>
+                        <td><p>{{ todo.no }}</p></td>
+                        <td><p>{{ todo.desc }}</p></td>
+                    </tr>
+                    
                 </div>
             </tbody>
         </table>
@@ -25,7 +29,10 @@
     export default {
         mixins: [Base],
 
+        components: { Todo },
+
         created() {
+            console.log("todolist created");
         },
 
         data() {

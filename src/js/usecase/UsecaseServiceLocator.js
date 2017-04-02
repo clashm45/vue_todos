@@ -5,7 +5,7 @@ export default {
         this.services[name] = service;
     },
 
-    resoleve (name) {
+    resolve (name) {
         return this.services[name];
     }
 };

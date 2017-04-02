@@ -1,11 +1,16 @@
 export default class {
 
     constructor (todos) {
-        this._todos = todos;
+        this.todos = todos;
+
+        console.log("domain todolist created " + this.todos.length);
     }
 
+
+
     getTodo (no) {
-        return this._todos.find(function (e) {
+        console.log("domain todolist getTodo("+no+")");
+        return this.todos.find(function (e) {
             return e.no === no;
         });
     }

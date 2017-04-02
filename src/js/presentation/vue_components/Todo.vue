@@ -26,6 +26,8 @@
         props: ['no'],
 
         created() {
+            console.log("todo created");
+
             this.subscriptions.push(
                 this.usecase.todoStateChanged.subscribe(() => {
                     this.todo = Object.assign({}, this.usecase.todoList.getTodo(no))

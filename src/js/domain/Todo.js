@@ -5,10 +5,10 @@ export default class {
         this._state = false;
     }
 
-    get getNo () {
+    get no () {
         return this._no;
     }
-    get getTaskDescription () {
+    get desc () {
         return this._desc;
     }
 
