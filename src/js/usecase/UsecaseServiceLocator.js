@@ -1,11 +1,11 @@
 export default {
     services: {},
 
-    register(name, service) {
+    register (name, service) {
         this.services[name] = service;
     },
 
-    resoleve(name) {
+    resoleve (name) {
         return this.services[name];
     }
 };

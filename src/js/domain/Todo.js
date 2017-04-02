@@ -1,18 +1,18 @@
 export default class {
-    constructor(no, desc) {
+    constructor (no, desc) {
         this._no = no;
         this._desc = desc;
         this._state = false;
     }
 
-    get getNo() {
+    get getNo () {
         return this._no;
     }
-    get getTaskDescription() {
+    get getTaskDescription () {
         return this._desc;
     }
 
-    toggleState() {
-        this._state = ! this._state;
+    toggleState () {
+        this._state = !this._state;
     }
 }

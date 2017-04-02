@@ -13,6 +13,13 @@
     },
     "globals": {},
     "rules": {
-        "semi": "error"
+        // 末尾セミコロンを強制
+        "semi": [2, "always"],
+        // const or let を強制
+        "no-var": 2,
+        // インデントスタイルは4スペースに強制
+        "indent": [2, 4, {
+            "SwitchCase": 1
+        }]
     }
 }
