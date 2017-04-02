@@ -30,12 +30,9 @@
 </template>
 <script>
     import Base from './Base';
-    import Todo from './Todo.vue';
 
     export default {
         mixins: [Base],
-
-        components: { Todo },
 
         created() {
             this.subscriptions.push(
