@@ -1,0 +1,38 @@
+{
+  "name": "vue_todo",
+  "version": "1.0.0",
+  "description": "todo apl",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "build": "mkdir -p build && cp src/index.html build/index.html && webpack",
+    "watch": "mkdir -p build && cp src/index.html build/index.html && webpack -w",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf build/*",
+    "lint": "eslint src/*"
+  },
+  "author": "clash.m45",
+  "license": "ISC",
+  "dependencies": {
+    "materialize-css": "^0.98.1",
+    "vue": "^2.2.6"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.0",
+    "css-loader": "^0.28.0",
+    "eslint": "^3.19.0",
+    "eslint-config-vue": "^2.0.2",
+    "eslint-plugin-vue": "^2.0.1",
+    "file-loader": "^0.11.1",
+    "style-loader": "^0.16.1",
+    "url-loader": "^0.5.8",
+    "vue-loader": "^11.3.4",
+    "vue-template-compiler": "^2.2.6",
+    "webpack": "^2.3.2"
+  }
+}
