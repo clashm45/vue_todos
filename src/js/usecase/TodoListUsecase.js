@@ -16,7 +16,7 @@ export default class {
         this.todoStateChanged.notify();
     }
 
-    addTodo(desc) {
+    addTodo (desc) {
         const newNo = this.todoList.todos.length + 1;
         this.todoList.todos.push(new Todo(newNo, desc));
         this.todoAddComleted.notify();

@@ -12,7 +12,8 @@
     "watch": "mkdir -p build && cp src/index.html build/index.html && webpack -w",
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf build/*",
-    "lint": "eslint src/* --fix",
+    "lint": "eslint src/*",
+    "lintfix": "eslint src/* --fix",
     "start": "webpack-dev-server --content-base build/ --hot"
   },
   "author": "clash.m45",
