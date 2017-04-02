@@ -3,9 +3,6 @@ import Notificator from '../lib/Notificator';
 
 export default class {
     constructor (todos) {
-
-        console.log("todolistUsecase constructor");
-
         this.todoList = new TodoList(todos);
 
         // Events
