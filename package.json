@@ -12,7 +12,8 @@
     "watch": "mkdir -p build && cp src/index.html build/index.html && webpack -w",
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf build/*",
-    "lint": "eslint src/* --fix"
+    "lint": "eslint src/* --fix",
+    "start": "webpack-dev-server --content-base build/ --hot"
   },
   "author": "clash.m45",
   "license": "ISC",
@@ -33,6 +34,7 @@
     "url-loader": "^0.5.8",
     "vue-loader": "^11.3.4",
     "vue-template-compiler": "^2.2.6",
-    "webpack": "^2.3.2"
+    "webpack": "^2.3.2",
+    "webpack-dev-server": "^2.4.2"
   }
 }

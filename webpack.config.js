@@ -5,7 +5,7 @@ const config = {
     entry: './src/js/index.js',
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'build')
+        path: path.resolve(__dirname, 'build'),
     },
     devtool: 'source-map',
     module: {
@@ -27,7 +27,8 @@ const config = {
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery"
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin()
     ],
     resolve: {
         alias: {

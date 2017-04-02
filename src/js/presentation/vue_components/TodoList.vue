@@ -2,24 +2,32 @@
 </style>
 <template>
     <div class="row">
-        <table>
-            <thead>
-                <tr>
-                    <th>No.</th>
-                    <th>Todo</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <div v-for="todo in todos">
+            <table class="striped">
+                <thead>
                     <tr>
-                        <td><p>{{ todo.no }}</p></td>
-                        <td><p>{{ todo.desc }}</p></td>
+                        <th>No.</th>
+                        <th>Todo</th>
+                        <th>done</th>
                     </tr>
-                    
-                </div>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <tr v-for="todo in todos" :key="todo.no">
+                        <td>
+                            {{todo.no}}
+                        </td>
+                        <td>
+                            {{todo.desc}}
+                        </td>
+                        <td>
+                            <a class="waves-effect waves-light btn"
+                                :class="[todo.state ? 'orange': 'tea', {'lighten-5': ! todo.state}]"
+                                @click="toggleTodo(todo.no)">
+                                done!
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
     </div>
 </template>
 <script>
@@ -32,7 +40,11 @@
         components: { Todo },
 
         created() {
-            console.log("todolist created");
+            this.subscriptions.push(
+                this.usecase.todoStateChanged.subscribe(() => {
+                    this.todos = this.usecase.todoList.todos;
+                })
+            );
         },
 
         data() {
@@ -45,6 +57,9 @@
         },
 
         methods: {
+            toggleTodo(no) {
+                this.usecase.toggleTodoState(no);
+            }
         }
     }
 

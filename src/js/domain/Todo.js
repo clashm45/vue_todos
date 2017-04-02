@@ -12,6 +12,10 @@ export default class {
         return this._desc;
     }
 
+    get state () {
+        return this._state;
+    }
+
     toggleState () {
         this._state = !this._state;
     }

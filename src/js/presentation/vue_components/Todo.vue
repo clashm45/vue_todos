@@ -3,15 +3,15 @@
 <template>
     <tr>
         <td>
-            {{todo.no}}
+            {{no}}
         </td>
         <td>
-            {{todo.taskDescription}}
+            {{todo.desc}}
         </td>
         <td>
             <a class="waves-effect waves-light btn"
                 :class="[todo.state ? 'orange': 'tea']"
-                @click="toggleTodo(no)">
+                @click="toggleTodo()">
                 done!
             </a>
         </td>
@@ -27,6 +27,7 @@
 
         created() {
             console.log("todo created");
+            this.todo = Object.assign({}, this.usecase.todoList.getTodo(no))
 
             this.subscriptions.push(
                 this.usecase.todoStateChanged.subscribe(() => {
@@ -35,15 +36,21 @@
             );
         },
 
+        computed: {
+            
+        },
 
         data() {
+
+            console.log("this.no = " + no);
+
             return {
                 todo: Object.assign({}, this.usecase.todoList.getTodo(no))
             }
         },
 
         methods: {
-            toggleTodo(no) {
+            toggleTodo() {
                 this.usecase.toggleTodoState(no);
             }
         }
