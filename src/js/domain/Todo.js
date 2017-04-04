@@ -2,7 +2,7 @@ export default class {
     constructor (no, desc, state) {
         this._no = no;
         this._desc = desc;
-        this._state = state ? state : false;
+        this._state = state || false;
     }
 
     get no () {

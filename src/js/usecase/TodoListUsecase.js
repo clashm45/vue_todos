@@ -1,6 +1,5 @@
 import TodoList from '../domain/TodoList';
 import Notificator from '../lib/Notificator';
-import Todo from '../domain/Todo';
 
 export default class {
     constructor () {
@@ -24,12 +23,12 @@ export default class {
         this.saveTodo();
     }
 
-    saveTodo() {
+    saveTodo () {
         this.todoList.save();
         this.todoSaved.notify();
     }
 
-    loadTodo() {
+    loadTodo () {
         this.todoList.load();
     }
 }

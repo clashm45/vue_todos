@@ -15,26 +15,25 @@ export default class {
         });
     }
 
-    toggleTodoState(no) {
+    toggleTodoState (no) {
         this.getTodo(no).toggleState();
     }
 
-
-    add(desc) {
+    add (desc) {
         const newNo = this.todos.length + 1;
         this.todos.push(new Todo(newNo, desc));
     }
 
-    save() {
+    save () {
         this.storage.save(this.todos);
     }
 
-    load() {
+    load () {
         const loadedTodos = this.storage.load();
         // arrayのtodoがあるはず
-        for(const index in loadedTodos) {
+        for (const index in loadedTodos) {
             const t = loadedTodos[index];
-            console.info(index + ":", t);
+            console.info(index + ':', t);
             this.todos.push(new Todo(t._no, t._desc, t._state));
         }
     }
