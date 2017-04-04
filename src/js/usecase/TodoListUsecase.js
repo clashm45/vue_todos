@@ -3,22 +3,33 @@ import Notificator from '../lib/Notificator';
 import Todo from '../domain/Todo';
 
 export default class {
-    constructor (todos) {
-        this.todoList = new TodoList(todos);
+    constructor () {
+        this.todoList = new TodoList();
 
         // Events
-        this.todoStateChanged = new Notificator();
-        this.todoAddComleted = new Notificator();
+        this.todoStateChanged = new Notificator();// TodoのStateが変わったEvent
+        this.todoAddComleted = new Notificator();// Todoを追加したEvent
+        this.todoSaved = new Notificator();// Todoを保存したEvent
     }
 
     toggleTodoState (no) {
-        this.todoList.getTodo(no).toggleState();
+        this.todoList.toggleTodoState(no);
         this.todoStateChanged.notify();
+        this.saveTodo();
     }
 
     addTodo (desc) {
-        const newNo = this.todoList.todos.length + 1;
-        this.todoList.todos.push(new Todo(newNo, desc));
+        this.todoList.add(desc);
         this.todoAddComleted.notify();
+        this.saveTodo();
+    }
+
+    saveTodo() {
+        this.todoList.save();
+        this.todoSaved.notify();
+    }
+
+    loadTodo() {
+        this.todoList.load();
     }
 }

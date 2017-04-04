@@ -40,6 +40,12 @@
                     this.todos = this.usecase.todoList.todos;
                 })
             );
+
+            this.subscriptions.push(
+                this.usecase.todoSaved.subscribe(() => {
+                    Materialize.toast('Save!', 4000);
+                })
+            );
         },
 
         data() {

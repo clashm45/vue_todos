@@ -1,8 +1,8 @@
 export default class {
-    constructor (no, desc) {
+    constructor (no, desc, state) {
         this._no = no;
         this._desc = desc;
-        this._state = false;
+        this._state = state ? state : false;
     }
 
     get no () {

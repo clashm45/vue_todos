@@ -24,15 +24,8 @@
             TodoForm
         },
         beforeCreate() {
-            const initTodos = [
-                new Todo(1, 'wash'),
-                new Todo(2, 'hige'),
-                new Todo(3, 'breakfast'),
-                new Todo(4, 'tooth'),
-                new Todo(5, 'bag make'),
-            ];
-
-            const usecase = new TodoListUsecase(initTodos);
+            const usecase = new TodoListUsecase();
+            usecase.loadTodo();
             ServiceLocator.register('TodoListUsecase', usecase);
         }
     }
