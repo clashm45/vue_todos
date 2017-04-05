@@ -10,6 +10,7 @@
                 <th>No.</th>
                 <th>Task</th>
                 <th>check</th>
+                <th>delete</th>
             </thead>
             <tbody>
                 <tr v-for="todo in todos" :key="todo.no">
@@ -24,6 +25,12 @@
                             :class="[todo.state ? 'orange': 'tea', {'lighten-5': ! todo.state}]"
                             @click="toggleTodo(todo.no)">
                             done!
+                        </a>
+                    </td>
+                    <td>
+                        <a class="waves-effect waves-light btn red"
+                            @click="removeTodo(todo.no)">
+                            remove
                         </a>
                     </td>
                 </tr>
@@ -61,6 +68,12 @@
                     this.todos = this.filterDoneTask();
                 })
             );
+
+            this.subscriptions.push(
+                this.usecase.removeTodo.subscribe(() => {
+                    this.todos = this.filterDoneTask();
+                })
+            );
         },
 
         data() {
@@ -83,6 +96,10 @@
                     return this.usecase.todoList.todos.filter(el => el.state === false);
                 }
                 return this.usecase.todoList.todos;
+            },
+
+            removeTodo(no) {
+                this.usecase.remove(no);
             }
         }
     }

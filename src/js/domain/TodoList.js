@@ -37,4 +37,8 @@ export default class {
             this.todos.push(new Todo(t._no, t._desc, t._state));
         }
     }
+
+    remove(no) {
+        this.todos = this.todos.filter(t => t._no !== no);
+    }
 }

@@ -12,6 +12,7 @@ export default class {
         this.todoAddComleted = new Notificator();// Todoを追加したEvent
         this.todoSaved = new Notificator();// Todoを保存したEvent
         this.changedFilteringFlag = new Notificator();// Filterを変更したEvent
+        this.removeTodo = new Notificator();// Todoを削除したEvent
     }
 
     toggleTodoState (no) {
@@ -40,4 +41,9 @@ export default class {
         this.changedFilteringFlag.notify();
     }
 
+    remove(no) {
+        this.todoList.remove(no);
+        this.removeTodo.notify();
+        this.saveTodo();
+    }
 }
