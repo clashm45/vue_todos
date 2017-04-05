@@ -1,11 +1,11 @@
 export default class {
-    constructor() {
+    constructor () {
         this.filteringFlag = false;
-        
-        //TODO Strageに保存して利用する
+
+        // TODO Strageに保存して利用する
     }
 
-    toggleFilteringFlag(){
-        this.filteringFlag = ! this.filteringFlag;
+    toggleFilteringFlag () {
+        this.filteringFlag = !this.filteringFlag;
     }
 }

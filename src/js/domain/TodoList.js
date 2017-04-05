@@ -38,7 +38,7 @@ export default class {
         }
     }
 
-    remove(no) {
+    remove (no) {
         this.todos = this.todos.filter(t => t._no !== no);
     }
 }

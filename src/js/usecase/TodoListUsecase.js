@@ -36,12 +36,12 @@ export default class {
         this.todoList.load();
     }
 
-    toggleFilteringFlag() {
+    toggleFilteringFlag () {
         this.options.toggleFilteringFlag();
         this.changedFilteringFlag.notify();
     }
 
-    remove(no) {
+    remove (no) {
         this.todoList.remove(no);
         this.removeTodo.notify();
         this.saveTodo();
