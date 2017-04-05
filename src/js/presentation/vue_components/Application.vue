@@ -6,6 +6,7 @@
         <div class="container">
             <todo-list></todo-list>
             <todo-form></todo-form>
+            <options></options>
         </div>
     </div>
 </template>
@@ -14,6 +15,7 @@
     import Navigation from './Navigation.vue';
     import TodoList from './TodoList.vue';
     import TodoForm from './TodoForm.vue';
+    import Options from './Options.vue';
     import TodoListUsecase from '../../usecase/TodoListUsecase';
     import Todo from '../../domain/Todo';
 
@@ -21,7 +23,8 @@
         components: {
             Navigation,
             TodoList,
-            TodoForm
+            TodoForm,
+            Options
         },
         beforeCreate() {
             const usecase = new TodoListUsecase();

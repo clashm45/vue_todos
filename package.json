@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "mkdir -p build && cp src/index.html build/index.html && webpack",
-    "watch": "mkdir -p build && cp src/index.html build/index.html && webpack -w",
+    "watch": "mkdir -p build && cp src/index.html build/index.html && webpack --progress --colors --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf build/*",
     "lint": "eslint src/*",

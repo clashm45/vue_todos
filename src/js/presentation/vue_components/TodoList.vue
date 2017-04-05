@@ -1,8 +1,11 @@
 <style>
+    .desc {
+        width: 350px;
+    }
 </style>
 <template>
     <div class="row">
-        <table class="highlight">
+        <table class="highlight cols s12">
             <thead>
                 <th>No.</th>
                 <th>Task</th>
@@ -13,7 +16,7 @@
                     <td>
                         {{todo.no}}
                     </td>
-                    <td>
+                    <td class="desc">
                         {{todo.desc}}
                     </td>
                     <td>
@@ -37,13 +40,25 @@
         created() {
             this.subscriptions.push(
                 this.usecase.todoStateChanged.subscribe(() => {
-                    this.todos = this.usecase.todoList.todos;
+                    this.todos = this.filterDoneTask();
                 })
             );
 
             this.subscriptions.push(
                 this.usecase.todoSaved.subscribe(() => {
                     Materialize.toast('Save!', 4000);
+                })
+            );
+
+            this.subscriptions.push(
+                this.usecase.todoAddComleted.subscribe(() => {
+                    this.todos = this.filterDoneTask();
+                })
+            );
+
+            this.subscriptions.push(
+                this.usecase.changedFilteringFlag.subscribe(() => {
+                    this.todos = this.filterDoneTask();
                 })
             );
         },
@@ -60,6 +75,14 @@
         methods: {
             toggleTodo(no) {
                 this.usecase.toggleTodoState(no);
+            },
+
+            filterDoneTask() {
+                const flag = this.usecase.options.filteringFlag;
+                if(flag === true) {
+                    return this.usecase.todoList.todos.filter(el => el.state === false);
+                }
+                return this.usecase.todoList.todos;
             }
         }
     }

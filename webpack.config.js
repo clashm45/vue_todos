@@ -36,6 +36,9 @@ const config = {
         alias: {
             vue: 'vue/dist/vue.js'
         }
+    },
+    watchOptions: {
+        poll: true
     }
 };
 

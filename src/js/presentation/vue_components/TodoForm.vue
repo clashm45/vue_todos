@@ -3,7 +3,7 @@
 <template>
     <div class="row">
         <div class="input-field col s6">
-            <input id="new-task" v-model="newTodo" type="text" class="validate" data-length="20">
+            <input id="new-task" v-model="newTodo" type="text" class="validate" data-length="30" maxlength="30">
             <label class="active" for="new-task">New Task</label>
         </div>
         <div class="col s4">
